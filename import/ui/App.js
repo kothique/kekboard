@@ -1,9 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import Sidebar from './Sidebar'
+
 class App extends React.Component {
   render() {
-    return <h1>Hi, bitches!</h1>
+    return (
+      <Sidebar id="sidebar" />
+    )
   }
 }
 
