@@ -7,7 +7,7 @@ class Brand extends React.Component {
     const { ...rest } = this.props
 
     return (
-      <h3 {...rest}>Kekboard</h3>
+      <h4 {...rest}>KEKBOARD</h4>
     )
   }
 }

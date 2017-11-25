@@ -1,3 +1,5 @@
+/* Sidebar */
+
 #sidebar {
   width: 300px;
 
@@ -7,7 +9,16 @@
   bottom: 0;
 
   border-right: 1px solid rgba(0, 0, 0.5, 0.3);
+
+  transition-property: left;
+  transition-duration: 0.3s;
 }
+
+#sidebar.hidden {
+  left: -300px;
+}
+
+/* Content */
 
 #content {
   position: fixed;
@@ -17,4 +28,27 @@
   right: 0;
 
   overflow: auto;
+
+  transition-property: left;
+  transition-duration: 0.3s;
+}
+
+#content.expanded {
+  left: 0;
+}
+
+/* Sidebar Toggler */
+#toggler   {
+  position: fixed;
+  left: calc(300px + 12px);
+  top: calc(50% - 8px);
+
+  z-index: 20000;
+
+  transition-property: left;
+  transition-duration: 0.3s;
+}
+
+#toggler.hidden {
+  left: 12px;
 }

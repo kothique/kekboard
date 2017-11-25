@@ -9,8 +9,8 @@ class Sidebar extends React.Component {
 
     return (
       <nav {...rest}>
-        <Brand />
-        <ListSections />
+        <Brand id="brand" />
+        <ListSections id="list-sections" />
       </nav>
     )
   }

@@ -8,7 +8,7 @@ class Header extends React.Component {
 
     return (
       <div {...rest}>
-        <h4>THREAD NAME</h4>
+        <h4>Thread name</h4>
       </div>
     )
   }
