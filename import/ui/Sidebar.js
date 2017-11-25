@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Brand from './Brand'
 import ListSections from './ListSections'
 
 class Sidebar extends React.Component {
@@ -8,6 +9,7 @@ class Sidebar extends React.Component {
 
     return (
       <nav {...rest}>
+        <Brand />
         <ListSections />
       </nav>
     )
