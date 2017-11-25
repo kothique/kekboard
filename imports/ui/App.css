@@ -8,3 +8,13 @@
 
   border-right: 1px solid rgba(0, 0, 0.5, 0.3);
 }
+
+#content {
+  position: fixed;
+  left: 300px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  overflow: auto;
+}

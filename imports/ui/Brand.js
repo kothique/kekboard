@@ -4,8 +4,10 @@ import './Brand.css'
 
 class Brand extends React.Component {
   render() {
+    const { ...rest } = this.props
+
     return (
-      <h3>Kekboard</h3>
+      <h3 {...rest}>Kekboard</h3>
     )
   }
 }
