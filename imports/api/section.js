@@ -13,4 +13,4 @@ const Section = Class.create({
   }
 })
 
-export default Setcion
+export default Section

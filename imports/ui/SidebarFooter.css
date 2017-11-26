@@ -1,0 +1,9 @@
+#profile {
+  float: left;
+  margin-left: 16px;
+}
+
+#quit {
+  float: right;
+  margin-right: 16px;
+}
