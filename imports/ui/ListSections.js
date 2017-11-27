@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import Section from '../api/section'
+import DBSection from '../api/section'
 import ItemSection from './ItemSection'
 
 class ListSections extends React.Component {
@@ -19,5 +19,5 @@ class ListSections extends React.Component {
 }
 
 export default withTracker(() => ({
-    sections: Section.find().fetch()
+    sections: DBSection.find().fetch()
 }))(ListSections)
