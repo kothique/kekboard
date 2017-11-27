@@ -1,28 +1,23 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import './App.css'
 import Sidebar from './Sidebar'
 import Toggler from './Toggler'
 import Main from './Main'
+import Section from './Section'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      hideSidebar: false,
-      currentPage: 'main'
+      hideSidebar: false
     }
   }
 
   render() {
-    let currentPageHtml = <h4 style={{ textAlign: 'center' }}>404 - Page Not Found</h4>
-    if (this.state.currentPage === 'main') {
-        currentPageHtml = <Main />
-    }
-
     return (
       <div>
         <Sidebar
@@ -30,9 +25,10 @@ class App extends React.Component {
 
         <div id="content"
           className={'' + (this.state.hideSidebar ? ' sidebar-hidden' : '')}>
-          <Router>
+          <Switch>
             <Route exact path="/" component={Main} />
-          </Router>
+            <Route path="/:shorthand" component={Section} />
+          </Switch>
         </div>
 
         <Toggler

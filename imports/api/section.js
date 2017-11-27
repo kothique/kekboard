@@ -9,8 +9,15 @@ const Section = Class.create({
     shorthand: String
   },
   behaviors: {
-    timestamp: {}
+    timestamp: {},
+    softremove: {}
   }
 })
+
+if (Meteor.isServer) {
+  Meteor.publish('sections', function() {
+    return Section.find()
+  })
+}
 
 export default Section

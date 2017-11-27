@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 class ItemSection extends React.Component {
   static propTypes = {
@@ -10,7 +11,11 @@ class ItemSection extends React.Component {
     const { section, ...rest } = this.props
 
     return (
-      <li {...rest}>{section.name}</li>
+      <li>
+        <Link to={'/' + section.shorthand}>
+          {section.name}
+        </Link>
+      </li>
     )
   }
 }
