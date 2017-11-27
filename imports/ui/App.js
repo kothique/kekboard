@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import './App.css'
 import Sidebar from './Sidebar'
@@ -27,17 +28,18 @@ class App extends React.Component {
         <Sidebar
           className={'' + (this.state.hideSidebar ? ' hidden' : '')} />
 
-
         <div id="content"
-          className={'' + (this.state.hideSidebar ? ' expanded' : '')}>
-          {currentPageHtml}
+          className={'' + (this.state.hideSidebar ? ' sidebar-hidden' : '')}>
+          <Router>
+            <Route exact path="/" component={Main} />
+          </Router>
         </div>
 
         <Toggler
           id="toggler"
           onClick={this.toggle}
           icon={this.state.hideSidebar ? 'open' : 'close' }
-          className={'' + (this.state.hideSidebar ? '  hidden' : '')} />
+          className={'' + (this.state.hideSidebar ? '  sidebar-hidden' : '')} />
       </div>
     )
   }
