@@ -1,14 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './Header.css'
 
 class Header extends React.Component {
+  static propTypes = {
+    title: PropTypes.string
+  }
+
+  static defaultProps = {
+    title: ''
+  }
+
   render() {
-    const { ...rest } = this.props
+    const { title, ...rest } = this.props
 
     return (
       <div id="header" {...rest}>
-        <h4>Header</h4>
+        <h4>{this.props.title}</h4>
       </div>
     )
   }

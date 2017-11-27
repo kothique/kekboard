@@ -2,7 +2,7 @@ import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
 import ItemSection from './ItemSection'
-import Section from '../api/section'
+import DBSection from '../api/section'
 
 class ListSections extends React.Component {
   render() {
@@ -22,6 +22,6 @@ export default withTracker(() => {
   Meteor.subscribe('sections')
 
   return {
-    sections: Section.find().fetch()
+    sections: DBSection.find().fetch()
   }
 })(ListSections)

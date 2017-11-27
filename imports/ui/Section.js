@@ -2,18 +2,18 @@ import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
 import Header from './Header'
-import Section from '../api/section'
+import DBSection from '../api/section'
 import Thread from '../api/thread'
 
-class lSection extends React.Component {
+class Section extends React.Component {
   render() {
-    const { threads, ...rest } = this.props
+    const { threads, sectionName, ...rest } = this.props
 
     let items = threads.map(thread => <li key={thread._id}>{thread.name}</li>)
 
     return (
       <div id="section">
-        <Header />
+        <Header title={sectionName} />
         <ul id="threads">
           {items}
         </ul>
@@ -27,7 +27,7 @@ export default withTracker(props => {
   Meteor.subscribe('threads')
 
   const { shorthand } = props.match.params
-  const section = Section.findOne({ shorthand })
+  const section = DBSection.findOne({ shorthand })
 
   if (!section) {
     return {
@@ -36,6 +36,7 @@ export default withTracker(props => {
   }
 
   return {
-    threads: Thread.find({ sectionId: section._id }).fetch()
+    threads: Thread.find({ sectionId: section._id }).fetch(),
+    sectionName: section.name
   }
-})(lSection)
+})(Section)
