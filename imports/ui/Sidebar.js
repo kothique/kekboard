@@ -8,11 +8,9 @@ import './Sidebar.css'
 
 class Sidebar extends React.Component {
   render() {
-    const { ...rest } = this.props
-
     return (
-      <nav {...rest}>
-        <Brand id="brand" />
+      <nav id="sidebar">
+        <Brand />
         <ListSections id="list-sections" />
         <SidebarFooter id="sidebar-footer" />
       </nav>

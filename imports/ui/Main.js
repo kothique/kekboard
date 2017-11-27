@@ -5,7 +5,7 @@ import './Main.css'
 class Main extends React.Component {
   render() {
     return (
-      <h4>Welcome to Kekboard!</h4>
+      <h4 style={{ textAlign: 'center' }}>Welcome to Kekboard!</h4>
     )
   }
 }

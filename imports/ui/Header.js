@@ -7,7 +7,7 @@ class Header extends React.Component {
     const { ...rest } = this.props
 
     return (
-      <div {...rest}>
+      <div id="header" {...rest}>
         <h4>Thread name</h4>
       </div>
     )

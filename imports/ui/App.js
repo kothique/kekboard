@@ -3,28 +3,35 @@ import { render } from 'react-dom'
 
 import './App.css'
 import Sidebar from './Sidebar'
-import Content from './Content'
 import Toggler from './Toggler'
+import Main from './Main'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      hideSidebar: false
+      hideSidebar: false,
+      currentPage: 'main'
     }
   }
 
   render() {
+    let currentPageHtml = <h4 style={{ textAlign: 'center' }}>404 - Page Not Found</h4>
+    if (this.state.currentPage === 'main') {
+        currentPageHtml = <Main />
+    }
+
     return (
       <div>
         <Sidebar
-          id="sidebar"
           className={'' + (this.state.hideSidebar ? ' hidden' : '')} />
 
-        <Content
-          id="content"
-          className={'' + (this.state.hideSidebar ? ' expanded' : '')} />
+
+        <div id="content"
+          className={'' + (this.state.hideSidebar ? ' expanded' : '')}>
+          {currentPageHtml}
+        </div>
 
         <Toggler
           id="toggler"
