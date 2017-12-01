@@ -22,3 +22,5 @@ jagi:astronomy
 jagi:astronomy-timestamp-behavior
 static-html
 jagi:astronomy-softremove-behavior
+accounts-base
+accounts-password

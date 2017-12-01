@@ -29,14 +29,8 @@ export default withTracker(props => {
   const { shorthand } = props.match.params
   const section = DBSection.findOne({ shorthand })
 
-  if (!section) {
-    return {
-      threads: []
-    }
-  }
+  let threads = section ? Thread.find({ sectionId: section._id }).fetch() : []
+  let sectionName = section ? section.name : ''
 
-  return {
-    threads: Thread.find({ sectionId: section._id }).fetch(),
-    sectionName: section.name
-  }
+  return { threads, sectionName }
 })(Section)

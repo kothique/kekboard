@@ -7,6 +7,8 @@ import Sidebar from './Sidebar'
 import Toggler from './Toggler'
 import Main from './Main'
 import Section from './Section'
+import SignUp from './SignUp'
+import SignIn from './SignIn'
 
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +29,8 @@ class App extends React.Component {
           className={'' + (this.state.hideSidebar ? ' sidebar-hidden' : '')}>
           <Switch>
             <Route exact path="/" component={Main} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/signin" component={SignIn} />
             <Route path="/:shorthand" component={Section} />
           </Switch>
         </div>

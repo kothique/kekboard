@@ -1,9 +1,9 @@
-#profile {
+#profile, #sign-in {
   float: left;
   margin-left: 16px;
 }
 
-#quit {
+#quit, #sign-up {
   float: right;
   margin-right: 16px;
 }
