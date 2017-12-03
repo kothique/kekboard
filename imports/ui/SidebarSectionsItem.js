@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-class ItemSection extends React.Component {
+class SidebarSectionsItem extends React.Component {
   static propTypes = {
     section: PropTypes.object.isRequired
   }
@@ -20,4 +20,4 @@ class ItemSection extends React.Component {
   }
 }
 
-export default ItemSection
+export default SidebarSectionsItem

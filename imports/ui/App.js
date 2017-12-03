@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css'
 import Sidebar from './Sidebar'
 import Toggler from './Toggler'
-import Main from './Main'
-import Section from './Section'
-import SignUp from './SignUp'
-import SignIn from './SignIn'
+import PageMain from './PageMain'
+import PageSection from './PageSection'
+import PageSignUp from './PageSignUp'
+import PageSignIn from './PageSignIn'
 
 class App extends React.Component {
   constructor(props) {
@@ -28,10 +28,10 @@ class App extends React.Component {
         <div id="content"
           className={'' + (this.state.hideSidebar ? ' sidebar-hidden' : '')}>
           <Switch>
-            <Route exact path="/" component={Main} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/:shorthand" component={Section} />
+            <Route exact path="/" component={PageMain} />
+            <Route path="/signup" component={PageSignUp} />
+            <Route path="/signin" component={PageSignIn} />
+            <Route path="/:shorthand" component={PageSection} />
           </Switch>
         </div>
 

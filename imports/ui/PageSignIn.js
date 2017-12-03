@@ -1,8 +1,8 @@
 import React from 'react'
 
-import './SignIn.css'
+import './PageSignIn.css'
 
-class SignIn extends React.Component {
+class PageSignIn extends React.Component {
   constructor(props) {
     super(props)
 
@@ -59,4 +59,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn
+export default PageSignIn

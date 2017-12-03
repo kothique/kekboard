@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Brand from './Brand'
-import ListSections from './ListSections'
+import SidebarBrand from './SidebarBrand'
+import SidebarSections from './SidebarSections'
 import SidebarFooter from './SidebarFooter'
 
 import './Sidebar.css'
@@ -12,8 +12,8 @@ class Sidebar extends React.Component {
 
     return (
       <nav id="sidebar" {...rest}>
-        <Brand />
-        <ListSections id="list-sections" />
+        <SidebarBrand />
+        <SidebarSections id="list-sections" />
         <SidebarFooter id="sidebar-footer" />
       </nav>
     )

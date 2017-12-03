@@ -5,7 +5,9 @@ import Header from './Header'
 import DBSection from '../api/section'
 import Thread from '../api/thread'
 
-class Section extends React.Component {
+import './PageSection.css'
+
+class PageSection extends React.Component {
   render() {
     const { threads, sectionName, ...rest } = this.props
 
@@ -33,4 +35,4 @@ export default withTracker(props => {
   let sectionName = section ? section.name : ''
 
   return { threads, sectionName }
-})(Section)
+})(PageSection)

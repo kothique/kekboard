@@ -1,8 +1,8 @@
 import React from 'react'
 
-import './Main.css'
+import './PageMain.css'
 
-class Main extends React.Component {
+class PageMain extends React.Component {
   render() {
     let { staticContext, ...rest } = this.props
 
@@ -12,4 +12,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main
+export default PageMain

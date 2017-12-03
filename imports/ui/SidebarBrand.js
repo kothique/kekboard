@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './Brand.css'
+import './SidebarBrand.css'
 
-class Brand extends React.Component {
+class SidebarBrand extends React.Component {
   render() {
     let { ...rest } = this.props
 
@@ -17,4 +17,4 @@ class Brand extends React.Component {
   }
 }
 
-export default Brand
+export default SidebarBrand

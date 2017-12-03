@@ -1,14 +1,14 @@
 import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import ItemSection from './ItemSection'
+import SidebarSectionsItem from './SidebarSectionsItem'
 import DBSection from '../api/section'
 
-class ListSections extends React.Component {
+class SidebarSections extends React.Component {
   render() {
     const { sections, ...rest } = this.props
 
-    let items = sections.map(section => <ItemSection section={section} key={section._id} />)
+    let items = sections.map(section => <SidebarSectionsItem section={section} key={section._id} />)
 
     return (
       <ul {...rest}>
@@ -24,4 +24,4 @@ export default withTracker(() => {
   return {
     sections: DBSection.find().fetch()
   }
-})(ListSections)
+})(SidebarSections)
