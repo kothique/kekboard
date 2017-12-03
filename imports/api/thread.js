@@ -5,11 +5,19 @@ const Thread = Class.create({
   name: 'Thread',
   collection: new Mongo.Collection('threads'),
   fields: {
-    name: String,
-    sectionId: Number,
-    authorId: Number,
+    name: {
+      type: String,
+    },
+    sectionId: {
+      type: String,
+      index: 1
+    },
+    authorId: {
+      type: String,
+      index: 1
+    }
   },
-  behaviours: {
+  behaviors: {
     timestamp: {},
     softremove: {},
     slug: {

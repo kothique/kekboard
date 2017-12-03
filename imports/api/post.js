@@ -5,10 +5,19 @@ const Post = Class.create({
   name: 'Post',
   collection: new Mongo.Collection('posts'),
   fields: {
-    body: String,
-    authorId: Number
+    body: {
+      type: String
+    },
+    sectionId: {
+      type: String,
+      index: 1
+    },
+    authorId: {
+      type: String,
+      index: 1
+    }
   },
-  behaviours: {
+  behaviors: {
     timestamp: {},
     softremove: {}
   }

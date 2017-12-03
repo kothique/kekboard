@@ -5,8 +5,22 @@ const Section = Class.create({
   name: 'Section',
   collection: new Mongo.Collection('sections'),
   fields: {
-    name: String,
-    shorthand: String
+    name: {
+      type: String
+    },
+    shorthand: {
+      type: String
+    }
+  },
+  indexes: {
+    shorthand: {
+      fields: {
+        shorthand: 1
+      },
+      options: {
+        unique: true
+      }
+    }
   },
   behaviors: {
     timestamp: {},

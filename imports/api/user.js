@@ -4,8 +4,12 @@ import { Class } from 'meteor/jagi:astronomy'
 const Email = Class.create({
   name: 'Email',
   fields: {
-    address: String,
-    verified: Boolean
+    address: {
+      type: String
+    },
+    verified: {
+      type: Boolean
+    }
   }
 })
 
@@ -25,8 +29,7 @@ const User = Class.create({
     profile: Object,
     services: Object
   },
-  behaviours: {
-    timestamp: {},
+  behaviors: {
     softremove: {}
   }
 })
