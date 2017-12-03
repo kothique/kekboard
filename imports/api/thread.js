@@ -6,8 +6,8 @@ const Thread = Class.create({
   collection: new Mongo.Collection('threads'),
   fields: {
     name: String,
-    sectionId: String,
-    authorId: String,
+    sectionId: Number,
+    authorId: Number,
   },
   behaviours: {
     timestamp: {},
