@@ -7,6 +7,7 @@ import Sidebar from './Sidebar'
 import Toggler from './Toggler'
 import PageMain from './PageMain'
 import PageSection from './PageSection'
+import PageThread from './PageThread'
 import PageSignUp from './PageSignUp'
 import PageSignIn from './PageSignIn'
 
@@ -31,7 +32,8 @@ class App extends React.Component {
             <Route exact path="/" component={PageMain} />
             <Route path="/signup" component={PageSignUp} />
             <Route path="/signin" component={PageSignIn} />
-            <Route path="/:shorthand" component={PageSection} />
+            <Route exact path="/:shorthand" component={PageSection} />
+            <Route path="/t/:slug" component={PageThread} />
           </Switch>
         </div>
 

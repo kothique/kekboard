@@ -8,7 +8,7 @@ const Post = Class.create({
     body: {
       type: String
     },
-    sectionId: {
+    threadId: {
       type: String,
       index: 1
     },
