@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
-import './App.css'
+import './styles/App.css'
 import Sidebar from './Sidebar'
 import Toggler from './Toggler'
 import PageMain from './PageMain'

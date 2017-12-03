@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './SidebarBrand.css'
+import './styles/SidebarBrand.css'
 
 class SidebarBrand extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './PageMain.css'
+import './styles/PageMain.css'
 
 class PageMain extends React.Component {
   render() {

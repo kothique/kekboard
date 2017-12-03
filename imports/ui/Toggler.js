@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const SYM_CLOSE = '×'
+const SYM_OPEN = '>'
+
 class Toggler extends React.Component {
   static propTypes = {
     onClick: PropTypes.func,
@@ -10,7 +13,7 @@ class Toggler extends React.Component {
   render() {
     const { onClick, ...rest } = this.props
 
-    const msg = this.props.icon === 'open' ? '>' : '×'
+    const msg = this.props.icon === 'open' ? SYM_OPEN : SYM_CLOSE
 
     return (
       <span
