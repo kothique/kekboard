@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom'
 
 import App from '../imports/ui/App'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 Meteor.startup(() => {
   render(
     <BrowserRouter>
