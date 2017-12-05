@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './styles/PageSignUp.css'
+import './styles/PageSignUp.styl'
 
 class PageSignUp extends React.Component {
   constructor(props) {

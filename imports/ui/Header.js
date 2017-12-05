@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './styles/Header.css'
+import './styles/Header.styl'
 
 class Header extends React.Component {
   static propTypes = {

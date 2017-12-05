@@ -6,7 +6,7 @@ import Header from './Header'
 import Section from '../api/section'
 import Thread from '../api/thread'
 
-import './styles/PageSection.css'
+import './styles/PageSection.styl'
 
 class PageSection extends React.Component {
   render() {

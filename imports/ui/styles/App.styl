@@ -1,0 +1,44 @@
+#sidebar
+  width 300px
+  
+  position fixed
+  left 0
+  top 0
+  bottom 0
+  
+  border-right 1px solid rgba(0, 0, 0.5, 0.3)
+  
+  transition-property left
+  transition-duration 0.3s
+  
+  &.removed
+    left -300px
+
+#content
+  position fixed
+  left 300px
+  top 0
+  bottom 0
+  right 0
+  width auto
+  
+  overflow auto
+  
+  transition-property left
+  transition-duration 0.3s
+  
+  &.sidebar-removed
+    left 0
+
+#toggler
+  position fixed
+  left 300px + 12px
+  top 50% - 8px
+  
+  z-index 20000
+  
+  transition-property left
+  transition-duration 0.3s
+  
+  &.sidebar-removed
+    left 12px

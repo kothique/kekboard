@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { withTracker } from 'meteor/react-meteor-data'
 import PropTypes from 'prop-types'
 
-import './styles/SidebarFooter.css'
+import './styles/SidebarFooter.styl'
 
 class SidebarFooter extends React.Component {
   static contextTypes = {

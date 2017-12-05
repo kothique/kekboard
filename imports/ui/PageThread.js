@@ -5,7 +5,7 @@ import Header from './Header'
 import Thread from '../api/thread'
 import Post from '../api/post'
 
-import './styles/PageThread.css'
+import './styles/PageThread.styl'
 
 class PageThread extends React.Component {
   render() {

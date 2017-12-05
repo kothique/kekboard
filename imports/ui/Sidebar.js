@@ -4,7 +4,7 @@ import SidebarBrand from './SidebarBrand'
 import SidebarSections from './SidebarSections'
 import SidebarFooter from './SidebarFooter'
 
-import './styles/Sidebar.css'
+import './styles/Sidebar.styl'
 
 class Sidebar extends React.Component {
   render() {
