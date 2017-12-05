@@ -9,7 +9,7 @@ import './styles/Sidebar.styl'
 
 class Sidebar extends Component {
   render() {
-    let { ...rest } = this.ownProps
+    let { ...rest } = this.ownProps()
 
     return (
       <nav id="sidebar" {...rest}>

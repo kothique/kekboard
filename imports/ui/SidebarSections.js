@@ -9,7 +9,7 @@ import './styles/SidebarSections.styl'
 
 class SidebarSections extends Component {
   render() {
-    const { sections, ...rest } = this.ownProps
+    const { sections, ...rest } = this.ownProps()
 
     let items = sections.map(section => <SidebarSectionsItem section={section} key={section._id} />)
 

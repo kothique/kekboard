@@ -10,7 +10,7 @@ import './styles/PageThread.styl'
 
 class PageThread extends Component {
   render() {
-    const { posts, threadName, ...rest } = this.ownProps
+    const { posts, threadName, ...rest } = this.ownProps()
 
     let items = posts.map(post => <li key={post._id}>{post.body} <em>by {post.authorId}</em></li>)
 

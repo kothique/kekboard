@@ -17,7 +17,7 @@ class SidebarFooter extends Component {
   }
 
   render() {
-    const { user, ...rest } = this.ownProps
+    const { user, ...rest } = this.ownProps()
 
     return user
       ? <div {...rest}>

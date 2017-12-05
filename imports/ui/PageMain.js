@@ -6,7 +6,7 @@ import './styles/PageMain.styl'
 
 class PageMain extends Component {
   render() {
-    let { ...rest } = this.ownProps
+    let { ...rest } = this.ownProps()
 
     return (
       <article id="main" className="container" {...rest}>

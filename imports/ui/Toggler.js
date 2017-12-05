@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Component from '../Component'
 
-import './style/Toggler.styl'
+import './styles/Toggler.styl'
 
 const SYM_CLOSE = '×'
 const SYM_OPEN = '>'
@@ -15,7 +15,7 @@ class Toggler extends Component {
   }
 
   render() {
-    const { icon, ...rest } = this.ownProps
+    const { icon, ...rest } = this.ownProps()
 
     const text = icon === 'open' ? SYM_OPEN : SYM_CLOSE
 

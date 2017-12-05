@@ -12,7 +12,7 @@ class SidebarSectionsItem extends Component {
   }
 
   render() {
-    const { section, ...rest } = this.ownProps
+    const { section, ...rest } = this.ownProps()
 
     return (
       <li>

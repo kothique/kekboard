@@ -22,10 +22,10 @@ class App extends Component {
   }
 
   render() {
-    const { ...rest } = this.ownProps
+    const { ...rest } = this.ownProps()
 
     return (
-      <div {...rest}>
+      <main {...rest}>
         <Sidebar
           className={'' + (this.state.hideSidebar ? ' removed' : '')} />
 
@@ -45,7 +45,7 @@ class App extends Component {
           onClick={this.toggle}
           icon={this.state.hideSidebar ? 'open' : 'close' }
           className={'' + (this.state.hideSidebar ? '  sidebar-removed' : '')} />
-      </div>
+      </main>
     )
   }
 

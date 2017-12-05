@@ -15,7 +15,7 @@ class Header extends Component {
   }
 
   render() {
-    const { title, ...rest } = this.ownProps
+    const { title, ...rest } = this.ownProps()
 
     return (
       <header id="header" {...rest}>

@@ -7,7 +7,7 @@ import './styles/SidebarBrand.styl'
 
 class SidebarBrand extends Component {
   render() {
-    let { ...rest } = this.ownProps
+    let { ...rest } = this.ownProps()
 
     return (
       <h4 id="sidebar-brand" {...rest}>

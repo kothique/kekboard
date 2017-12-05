@@ -14,7 +14,7 @@ class PageSignUp extends Component {
   }
 
   render() {
-    const { ...rest } = this.ownProps
+    const { ...rest } = this.ownProps()
 
     return (
       <article id="page-sign-up" {...rest}>

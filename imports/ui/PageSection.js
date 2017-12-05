@@ -11,7 +11,7 @@ import './styles/PageSection.styl'
 
 class PageSection extends Component {
   render() {
-    const { threads, sectionName, ...rest } = this.ownProps
+    const { threads, sectionName, ...rest } = this.ownProps()
 
     let items = threads.map(thread =>
       <li key={thread._id}>
