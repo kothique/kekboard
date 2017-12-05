@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { withTracker } from 'meteor/react-meteor-data'
 import PropTypes from 'prop-types'
 
+import Component from '../Component'
+
 import './styles/SidebarFooter.styl'
 
-class SidebarFooter extends React.Component {
+class SidebarFooter extends Component {
   static contextTypes = {
     router: PropTypes.shape({
       history: PropTypes.shape({
@@ -15,11 +17,11 @@ class SidebarFooter extends React.Component {
   }
 
   render() {
-    const { ...rest } = this.props
+    const { user, ...rest } = this.ownProps
 
-    return this.props.user
+    return user
       ? <div {...rest}>
-          <span id="profile">{this.props.user.username}</span>
+          <span id="profile">{user.username}</span>
           <span id="quit" onClick={this.quit}>quit</span>
         </div>
       : <div {...rest}>

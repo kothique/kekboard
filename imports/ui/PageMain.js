@@ -1,15 +1,17 @@
 import React from 'react'
 
+import Component from '../Component'
+
 import './styles/PageMain.styl'
 
-class PageMain extends React.Component {
+class PageMain extends Component {
   render() {
-    let { staticContext, ...rest } = this.props
+    let { ...rest } = this.ownProps
 
     return (
-      <div id="main" className="container" {...rest}>
+      <article id="main" className="container" {...rest}>
         <h4 id="greeting">Welcome to Kekboard!</h4>
-      </div>
+      </article>
     )
   }
 }

@@ -1,8 +1,7 @@
 import React from 'react'
-import { render } from 'react-dom'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
-import './styles/App.styl'
+import Component from '../Component'
 import Sidebar from './Sidebar'
 import Toggler from './Toggler'
 import PageMain from './PageMain'
@@ -11,7 +10,9 @@ import PageThread from './PageThread'
 import PageSignUp from './PageSignUp'
 import PageSignIn from './PageSignIn'
 
-class App extends React.Component {
+import './styles/App.styl'
+
+class App extends Component {
   constructor(props) {
     super(props)
 
@@ -21,8 +22,10 @@ class App extends React.Component {
   }
 
   render() {
+    const { ...rest } = this.ownProps
+
     return (
-      <div>
+      <div {...rest}>
         <Sidebar
           className={'' + (this.state.hideSidebar ? ' removed' : '')} />
 

@@ -2,15 +2,16 @@ import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 import { Link } from 'react-router-dom'
 
+import Component from '../Component'
 import Header from './Header'
 import Section from '../api/section'
 import Thread from '../api/thread'
 
 import './styles/PageSection.styl'
 
-class PageSection extends React.Component {
+class PageSection extends Component {
   render() {
-    const { threads, sectionName, ...rest } = this.props
+    const { threads, sectionName, ...rest } = this.ownProps
 
     let items = threads.map(thread =>
       <li key={thread._id}>
@@ -21,12 +22,12 @@ class PageSection extends React.Component {
     )
 
     return (
-      <div id="section">
+      <article id="section">
         <Header title={sectionName} />
         <ul id="threads">
           {items}
         </ul>
-      </div>
+      </article>
     )
   }
 }

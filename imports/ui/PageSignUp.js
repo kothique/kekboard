@@ -1,8 +1,10 @@
 import React from 'react'
 
+import Component from '../Component'
+
 import './styles/PageSignUp.styl'
 
-class PageSignUp extends React.Component {
+class PageSignUp extends Component {
   constructor(props) {
     super(props)
 
@@ -12,8 +14,10 @@ class PageSignUp extends React.Component {
   }
 
   render() {
+    const { ...rest } = this.ownProps
+
     return (
-      <section id="page-sign-up">
+      <article id="page-sign-up" {...rest}>
         <form>
           {this.state.error ? <span id="error">{this.state.error}</span> : <span />}<br />
 
@@ -39,7 +43,7 @@ class PageSignUp extends React.Component {
             ref={button => this.buttonSubmit = button}
             onClick={this.submit}>Sign Up</button>
         </form>
-      </section>
+      </article>
     )
   }
 

@@ -1,25 +1,26 @@
 import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
+import Component from '../Component'
 import Header from './Header'
 import Thread from '../api/thread'
 import Post from '../api/post'
 
 import './styles/PageThread.styl'
 
-class PageThread extends React.Component {
+class PageThread extends Component {
   render() {
-    const { posts, threadName, ...rest } = this.props
+    const { posts, threadName, ...rest } = this.ownProps
 
     let items = posts.map(post => <li key={post._id}>{post.body} <em>by {post.authorId}</em></li>)
 
     return (
-      <div id="thread">
+      <article id="thread" {...rest}>
         <Header  title={threadName} />
         <ul id="posts">
           {items}
         </ul>
-      </div>
+      </article>
     )
   }
 }

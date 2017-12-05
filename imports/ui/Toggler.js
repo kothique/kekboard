@@ -1,26 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Component from '../Component'
+
+import './style/Toggler.styl'
+
 const SYM_CLOSE = '×'
 const SYM_OPEN = '>'
 
-class Toggler extends React.Component {
+class Toggler extends Component {
   static propTypes = {
     onClick: PropTypes.func,
     icon: PropTypes.oneOf(['open', 'close']).isRequired
   }
 
   render() {
-    const { onClick, ...rest } = this.props
+    const { icon, ...rest } = this.ownProps
 
-    const msg = this.props.icon === 'open' ? SYM_OPEN : SYM_CLOSE
+    const text = icon === 'open' ? SYM_OPEN : SYM_CLOSE
 
     return (
       <span
-        onClick={onClick}
         style={{ cursor: 'pointer' }}
         {...rest}>
-        {msg}
+        {text}
       </span>
     )
   }

@@ -1,8 +1,10 @@
 import React from 'react'
 
+import Component from '../Component'
+
 import './styles/PageSignIn.styl'
 
-class PageSignIn extends React.Component {
+class PageSignIn extends Component {
   constructor(props) {
     super(props)
 
@@ -12,8 +14,10 @@ class PageSignIn extends React.Component {
   }
 
   render() {
+    const { ...rest } = this.ownProps
+
     return (
-      <section id="page-sign-in">
+      <article id="page-sign-in" {...rest}>
         <form>
           {this.state.error ? <span id="error">{this.state.error}</span> : <span />}<br />
 
@@ -34,7 +38,7 @@ class PageSignIn extends React.Component {
             onClick={this.submit}>Sign In</button>
 
         </form>
-      </section>
+      </article>
     )
   }
 
