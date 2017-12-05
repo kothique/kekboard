@@ -24,10 +24,10 @@ class App extends React.Component {
     return (
       <div>
         <Sidebar
-          className={'' + (this.state.hideSidebar ? ' hidden' : '')} />
+          className={'' + (this.state.hideSidebar ? ' removed' : '')} />
 
         <div id="content"
-          className={'' + (this.state.hideSidebar ? ' sidebar-hidden' : '')}>
+          className={'' + (this.state.hideSidebar ? ' sidebar-removed' : '')}>
           <Switch>
             <Route exact path="/" component={PageMain} />
             <Route path="/signup" component={PageSignUp} />
@@ -41,7 +41,7 @@ class App extends React.Component {
           id="toggler"
           onClick={this.toggle}
           icon={this.state.hideSidebar ? 'open' : 'close' }
-          className={'' + (this.state.hideSidebar ? '  sidebar-hidden' : '')} />
+          className={'' + (this.state.hideSidebar ? '  sidebar-removed' : '')} />
       </div>
     )
   }
