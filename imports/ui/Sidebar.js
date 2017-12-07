@@ -14,8 +14,10 @@ class Sidebar extends Component {
     return (
       <nav id="sidebar" {...rest}>
         <SidebarBrand />
-        <SidebarSections id="list-sections" />
-        <SidebarFooter id="sidebar-footer" />
+        <div id="sidebar-content">
+          <SidebarSections id="sidebar-content-sections" />
+          <SidebarFooter id="sidebar-content-footer" />
+        </div>
       </nav>
     )
   }

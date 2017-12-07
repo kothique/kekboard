@@ -10,11 +10,13 @@ class SidebarBrand extends Component {
     let { ...rest } = this.ownProps()
 
     return (
-      <h4 id="sidebar-brand" {...rest}>
-        <Link to="/">
-          KEKBOARD
-        </Link>
-      </h4>
+      <div id="sidebar-brand" {...rest}>
+        <h4 id="sidebar-brand-label">
+          <Link to="/">
+            KEKBOARD
+          </Link>
+        </h4>
+      </div>
     )
   }
 }

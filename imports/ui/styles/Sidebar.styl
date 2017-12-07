@@ -1,5 +1,27 @@
-#sidebar-footer
-  position absolute
-  bottom 8px
+@import '../../variables'
+
+#sidebar
+  width: $sidebar-width
+
+  position fixed
   left 0
-  right 0
+  top 0
+  bottom 0
+
+  transition all $transition-duration ease-out
+  transition-property left, box-shadow
+
+  &-content
+    border-right 1px solid rgba(0, 0, 0, .125)
+    padding-top 8px
+    height 100%
+
+    &-footer
+      position absolute
+      bottom 8px
+      left 0
+      right 0
+
+  &.removed
+    left -300px
+    box-shadow initial

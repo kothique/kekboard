@@ -1,2 +1,16 @@
+@import '../../variables'
+
 #sidebar-brand
   text-align center
+  height $header-height
+
+  border-bottom 1px solid rgba(0, 0, 0, .125)
+
+  transition all 0.3s
+  transition-property box-shadow
+
+  &-label
+    padding-top 12px
+
+  #sidebar.removed &
+    box-shadow initial

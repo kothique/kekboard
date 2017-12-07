@@ -19,7 +19,7 @@ class Header extends Component {
 
     return (
       <header id="header" {...rest}>
-        <h4>{title}</h4>
+        <h4 id="header-title">{title}</h4>
       </header>
     )
   }

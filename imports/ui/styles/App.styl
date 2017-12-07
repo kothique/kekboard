@@ -1,22 +1,8 @@
-#sidebar
-  width 300px
-  
-  position fixed
-  left 0
-  top 0
-  bottom 0
-  
-  border-right 1px solid rgba(0, 0, 0.5, 0.3)
-  
-  transition-property left
-  transition-duration 0.3s
-  
-  &.removed
-    left -300px
+@import '../../variables'
 
 #content
   position fixed
-  left 300px
+  left $sidebar-width
   top 0
   bottom 0
   right 0
@@ -24,21 +10,22 @@
   
   overflow auto
   
+  transition all $transition-duration ease-out
   transition-property left
-  transition-duration 0.3s
-  
+
   &.sidebar-removed
     left 0
 
 #toggler
   position fixed
-  left 300px + 12px
-  top 50% - 8px
+  left $sidebar-width
+  margin-left 12px
+  top 70%
   
   z-index 20000
   
+  transition all $transition-duration ease-out
   transition-property left
-  transition-duration 0.3s
-  
+
   &.sidebar-removed
-    left 12px
+    left 0
