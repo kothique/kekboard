@@ -41,7 +41,6 @@ class App extends Component {
         </div>
 
         <Toggler
-          id="toggler"
           onClick={this.toggle}
           icon={this.state.hideSidebar ? 'open' : 'close' }
           className={'' + (this.state.hideSidebar ? '  sidebar-removed' : '')} />

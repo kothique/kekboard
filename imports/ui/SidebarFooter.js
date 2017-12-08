@@ -20,13 +20,13 @@ class SidebarFooter extends Component {
     const { user, ...rest } = this.ownProps()
 
     return user
-      ? <div {...rest}>
-          <span id="profile">{user.username}</span>
-          <span id="quit" onClick={this.quit}>quit</span>
+      ? <div id="sidebar-footer" {...rest}>
+          <span id="sidebar-footer-profile">{user.username}</span>
+          <span id="sidebar-footer-quit" onClick={this.quit}>quit</span>
         </div>
       : <div {...rest}>
-          <Link to="/signin" id="sign-in">sign in</Link>
-          <Link to="/signup" id="sign-up">sign up</Link>
+          <Link to="/signin" id="sidebar-footer-sign-in">sign in</Link>
+          <Link to="/signup" id="sidebar-footer-sign-up">sign up</Link>
         </div>
   }
 

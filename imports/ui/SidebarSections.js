@@ -14,9 +14,9 @@ class SidebarSections extends Component {
     let items = sections.map(section => <SidebarSectionsItem section={section} key={section._id} />)
 
     return (
-      <ul {...rest}>
+      <div id="sidebar-sections" {...rest}>
         {items}
-      </ul>
+      </div>
     )
   }
 }

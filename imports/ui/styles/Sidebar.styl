@@ -1,7 +1,7 @@
 @import '../../variables'
 
 #sidebar
-  width: $sidebar-width
+  width $sidebar-width
 
   position fixed
   left 0
@@ -16,12 +16,6 @@
     padding-top 8px
     height 100%
 
-    &-footer
-      position absolute
-      bottom 8px
-      left 0
-      right 0
-
   &.removed
-    left -300px
+    left (- $sidebar-width)
     box-shadow initial

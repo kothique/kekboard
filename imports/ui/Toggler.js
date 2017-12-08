@@ -21,6 +21,7 @@ class Toggler extends Component {
 
     return (
       <span
+        id="toggler"
         style={{ cursor: 'pointer' }}
         {...rest}>
         {text}

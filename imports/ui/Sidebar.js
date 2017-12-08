@@ -15,8 +15,8 @@ class Sidebar extends Component {
       <nav id="sidebar" {...rest}>
         <SidebarBrand />
         <div id="sidebar-content">
-          <SidebarSections id="sidebar-content-sections" />
-          <SidebarFooter id="sidebar-content-footer" />
+          <SidebarSections />
+          <SidebarFooter />
         </div>
       </nav>
     )

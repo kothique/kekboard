@@ -15,11 +15,13 @@ class SidebarSectionsItem extends Component {
     const { section, ...rest } = this.ownProps()
 
     return (
-      <li>
+      <div className="sidebar-sections-item card">
         <Link to={'/' + section.shorthand}>
-          {section.name}
+          <div className="card-body">
+            {section.name}
+          </div>
         </Link>
-      </li>
+      </div>
     )
   }
 }

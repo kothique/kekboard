@@ -16,7 +16,7 @@ class PageSectionThreadsItem extends Component {
 
     return (
       <Link to={'/t/' + thread.slug}>
-        <div className="threads-item card" {...rest}>
+        <div className="page-section-threads-item card" {...rest}>
           <div className="card-body">
             {thread.name}
           </div>
