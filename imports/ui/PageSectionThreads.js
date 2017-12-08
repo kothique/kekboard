@@ -23,7 +23,7 @@ class PageSectionThreads extends Component {
     )
 
     return (
-      <div id="list-threads">
+      <div id="page-section-threads">
         {items}
       </div>
     )
