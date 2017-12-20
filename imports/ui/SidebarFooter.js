@@ -24,7 +24,7 @@ class SidebarFooter extends Component {
           <span id="sidebar-footer-profile">{user.username}</span>
           <span id="sidebar-footer-quit" onClick={this.quit}>quit</span>
         </div>
-      : <div {...rest}>
+      : <div id="sidebar-footer" {...rest}>
           <Link to="/signin" id="sidebar-footer-sign-in">sign in</Link>
           <Link to="/signup" id="sidebar-footer-sign-up">sign up</Link>
         </div>
