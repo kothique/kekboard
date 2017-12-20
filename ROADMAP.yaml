@@ -1,0 +1,14 @@
+areas:
+  functionality:
+    forms:
+      - create thread
+      - create post
+    pages:
+      - profile
+
+  appearance:
+    - nice consistent links
+    - good-looking forms
+
+  compatibility:
+    - mobile version
