@@ -32,4 +32,22 @@ if (Meteor.isServer) {
   })
 }
 
+Meteor.methods({
+  'threads.insert'({ name, section }) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('Not authorized')
+    }
+
+    if (Thread.findOne({ name })) {
+      throw new Meteor.Error('The name has been already taken')
+    }
+
+    new Thread({
+      name,
+      sectionId: section._id,
+      authorId: Meteor.userId()
+    }).save()
+  }
+})
+
 export default Thread

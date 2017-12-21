@@ -5,10 +5,14 @@ areas:
       - create post
     pages:
       - profile
+    refactoring:
+      - remove ../Component.js
+      - use <> or <Fragment>
 
   appearance:
     - nice consistent links
     - good-looking forms
+    - loading animation
 
   compatibility:
     - mobile version

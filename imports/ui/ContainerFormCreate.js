@@ -6,29 +6,66 @@ import './styles/ContainerFormCreate.styl'
 
 class ContainerFormCreate extends Component {
   static propTypes = {
-    open: PropTypes.bool.isRequired
+    form: PropTypes.func,
+    formProps: PropTypes.object
   }
 
   static defaultProps = {
-    open: false
+    formProps: {}
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: false,
+      error: null
+    }
+  }
+
+  toggleContainer = () => {
+    this.setState({
+      open: !this.state.open
+    })
+  }
+
+  onSuccess = () => {
+    this.setState({
+      open: false,
+      error: null
+    })
+  }
+
+  onFailure = error => {
+    this.setState({
+      error
+    })
   }
 
   render() {
-    const { children, open, ...rest } = this.ownProps()
+    const { form: Form, formProps, ...rest } = this.ownProps()
+    const { open, error } = this.state
 
     return (
-      <div
-        className={'container-form-create card card-body' + (open ? ' open' : '')}
-        {...rest}>
-
+      <div className={'container-form-create card card-body' + (open ? ' open' : '')}>
         <div
-          onClick={this.toggle}
+          onClick={this.toggleContainer}
           className="container-form-create-title">
           +
         </div>
 
+        {error
+          ? <div className="container-form-create-error">
+              {error}
+            </div>
+          : ''
+        }
+
         <div className="container-form-create-content">
-          {children}
+          <Form
+            onSuccess={this.onSuccess}
+            onFailure={this.onFailure}
+            {...formProps} />
         </div>
       </div>
     )

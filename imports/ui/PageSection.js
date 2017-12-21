@@ -4,6 +4,7 @@ import { withTracker } from 'meteor/react-meteor-data'
 import Component from '../Component'
 import Header from './Header'
 import PageSectionThreads from './PageSectionThreads'
+import PageSectionFormCreateThread from './PageSectionFormCreateThread'
 import ContainerFormCreate from './ContainerFormCreate'
 import Section from '../api/section'
 
@@ -12,26 +13,33 @@ import './styles/PageSection.styl'
 class PageSection extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      createFormOpen: false
-    }
   }
+
+  isLoading = () => !this.props.section
 
   render() {
     const { section, ...rest } = this.ownProps()
 
-    return (
-      <article id="section">
-        <Header title={section ? section.name : ''} />
-        <section id="section-data" className="container">
-          <ContainerFormCreate open={this.state.createFormOpen}>
-            CONTENT
-          </ContainerFormCreate>
-          <PageSectionThreads section={section} />
-        </section>
-      </article>
-    )
+    if (this.isLoading()) {
+      return (
+        <article id="section">
+          Loading...
+        </article>
+      )
+    } else {
+      return (
+        <article id="section">
+          <Header title={section.name} />
+          <section id="section-data" className="container">
+            <ContainerFormCreate
+              form={PageSectionFormCreateThread}
+              formProps={{ section }} />
+
+            <PageSectionThreads section={section} />
+          </section>
+        </article>
+      )
+    }
   }
 }
 
