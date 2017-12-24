@@ -38,7 +38,7 @@ Meteor.methods({
       throw new Meteor.Error('Not authorized')
     }
 
-    if (Thread.findOne({ name })) {
+    if (Thread.findOne({ name, section })) {
       throw new Meteor.Error('The name has been already taken')
     }
 
