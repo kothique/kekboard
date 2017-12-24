@@ -2,21 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import Component from '../Component'
-
 import './styles/PageSectionThreadsItem.styl'
 
-class PageSectionThreadsItem extends Component {
+class PageSectionThreadsItem extends React.Component {
   static propTypes = {
     thread: PropTypes.object.isRequired
   }
 
   render() {
-    const { thread, ...rest } = this.ownProps()
+    const { thread } = this.props
 
     return (
       <Link to={'/t/' + thread.slug}>
-        <div className="page-section-threads-item card" {...rest}>
+        <div className="page-section-threads-item card">
           <div className="card-body">
             {thread.name}
           </div>

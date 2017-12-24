@@ -4,9 +4,6 @@ areas:
       - create post
     pages:
       - profile
-    refactoring:
-      - remove ../Component.js
-      - use <> or <Fragment>
 
   bugs:
 

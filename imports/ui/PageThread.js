@@ -1,7 +1,6 @@
 import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import Component from '../Component'
 import Header from './Header'
 import PageThreadPosts from './PageThreadPosts'
 import Thread from '../api/thread'
@@ -9,15 +8,14 @@ import Post from '../api/post'
 
 import './styles/PageThread.styl'
 
-class PageThread extends Component {
+class PageThread extends React.Component {
   render() {
-    const { thread, ...rest } = this.ownProps()
+    const { thread } = this.props
 
     return (
-      <article id="thread" {...rest}>
-        <Header  title={thread ? thread.name : ''} />
-        <PageThreadPosts
-          thread={thread} />
+      <article id="thread">
+        <Header title={thread && thread.name} />
+        <PageThreadPosts thread={thread} />
       </article>
     )
   }

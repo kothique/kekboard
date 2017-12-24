@@ -1,20 +1,19 @@
 import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import Component from '../Component'
 import SidebarSectionsItem from './SidebarSectionsItem'
 import Section from '../api/section'
 
 import './styles/SidebarSections.styl'
 
-class SidebarSections extends Component {
+class SidebarSections extends React.Component {
   render() {
-    const { sections, ...rest } = this.ownProps()
+    const { sections } = this.props
 
     let items = sections.map(section => <SidebarSectionsItem section={section} key={section._id} />)
 
     return (
-      <div id="sidebar-sections" {...rest}>
+      <div id="sidebar-sections">
         {items}
       </div>
     )

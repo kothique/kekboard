@@ -2,21 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import Component from '../Component'
 import User from '../api/user'
 
 import './styles/PageThreadPosts.styl'
 
-class PageThreadPosts extends Component {
+class PageThreadPosts extends React.Component {
   static propTypes = {
     post: PropTypes.object.isRequired
   }
 
   render() {
-    const { post, author, ...rest } = this.ownProps()
+    const { post, author } = this.props
 
     return (
-      <div className="page-thread-posts-item card" {...rest}>
+      <div
+        className="page-thread-posts-item card">s
+
         <div className="card-body">
           {post.body}
         </div>

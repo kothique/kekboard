@@ -2,19 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import Component from '../Component'
 import PageSectionThreadsItem from './PageSectionThreadsItem'
 import Thread from '../api/thread'
 
 import './styles/PageSectionThreads.styl'
 
-class PageSectionThreads extends Component {
-  static PropTypes = {
+class PageSectionThreads extends React.Component {
+  static propTypes = {
     section: PropTypes.object
   }
 
   render() {
-    const { section, threads, ...rest } = this.ownProps()
+    const { section, threads } = this.props
 
     const items = threads.map(thread =>
       <PageSectionThreadsItem

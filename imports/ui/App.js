@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
-import Component from '../Component'
 import Sidebar from './Sidebar'
 import Toggler from './Toggler'
 import PageMain from './PageMain'
@@ -12,7 +11,7 @@ import PageSignIn from './PageSignIn'
 
 import './styles/App.styl'
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
 
@@ -22,10 +21,8 @@ class App extends Component {
   }
 
   render() {
-    const { ...rest } = this.ownProps()
-
     return (
-      <main {...rest}>
+      <Fragment>
         <Sidebar
           className={'' + (this.state.hideSidebar ? ' removed' : '')} />
 
@@ -42,9 +39,8 @@ class App extends Component {
 
         <Toggler
           onClick={this.toggle}
-          icon={this.state.hideSidebar ? 'open' : 'close' }
-          className={'' + (this.state.hideSidebar ? '  sidebar-removed' : '')} />
-      </main>
+          sidebarRemoved={this.state.hideSidebar} />
+      </Fragment>
     )
   }
 

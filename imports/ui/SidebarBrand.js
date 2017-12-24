@@ -1,16 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Component from '../Component'
-
 import './styles/SidebarBrand.styl'
 
-class SidebarBrand extends Component {
+class SidebarBrand extends React.Component {
   render() {
-    let { ...rest } = this.ownProps()
-
     return (
-      <div id="sidebar-brand" {...rest}>
+      <div id="sidebar-brand">
         <h4 id="sidebar-brand-label">
           <Link to="/">
             KEKBOARD

@@ -1,7 +1,6 @@
 import React from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import Component from '../Component'
 import Header from './Header'
 import PageSectionThreads from './PageSectionThreads'
 import PageSectionFormCreateThread from './PageSectionFormCreateThread'
@@ -10,7 +9,7 @@ import Section from '../api/section'
 
 import './styles/PageSection.styl'
 
-class PageSection extends Component {
+class PageSection extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -18,7 +17,7 @@ class PageSection extends Component {
   isLoading = () => !this.props.section
 
   render() {
-    const { section, ...rest } = this.ownProps()
+    const { section } = this.props
 
     if (this.isLoading()) {
       return (

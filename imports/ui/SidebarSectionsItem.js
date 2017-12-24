@@ -2,20 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import Component from '../Component'
-
 import './styles/SidebarSectionsItem.styl'
 
-class SidebarSectionsItem extends Component {
+class SidebarSectionsItem extends React.Component {
   static propTypes = {
     section: PropTypes.object.isRequired
   }
 
   render() {
-    const { section, ...rest } = this.ownProps()
+    const { section } = this.props
 
     return (
-      <div className="sidebar-sections-item card">
+      <div
+        className="sidebar-sections-item card">
+
         <Link to={'/' + section.shorthand}>
           <div className="card-body">
             {section.name}

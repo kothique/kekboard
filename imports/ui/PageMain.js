@@ -1,16 +1,14 @@
 import React from 'react'
 
-import Component from '../Component'
+import Header from './Header'
 
 import './styles/PageMain.styl'
 
-class PageMain extends Component {
+class PageMain extends React.Component {
   render() {
-    let { ...rest } = this.ownProps()
-
     return (
-      <article id="main" className="container" {...rest}>
-        <h4 id="greeting">Welcome to Kekboard!</h4>
+      <article id="main">
+        <Header title="Welcome to Kekboard!" />
       </article>
     )
   }

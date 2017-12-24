@@ -1,10 +1,8 @@
 import React from 'react'
 
-import Component from '../Component'
-
 import './styles/PageSignUp.styl'
 
-class PageSignUp extends Component {
+class PageSignUp extends React.Component {
   constructor(props) {
     super(props)
 
@@ -14,10 +12,8 @@ class PageSignUp extends Component {
   }
 
   render() {
-    const { ...rest } = this.ownProps()
-
     return (
-      <article id="page-sign-up" {...rest}>
+      <article id="page-sign-up">
         <form>
           {this.state.error ? <span id="error">{this.state.error}</span> : <span />}<br />
 

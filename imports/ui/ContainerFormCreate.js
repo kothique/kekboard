@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Component from '../Component'
 
 import './styles/ContainerFormCreate.styl'
 
-class ContainerFormCreate extends Component {
+class ContainerFormCreate extends React.Component {
   static propTypes = {
     form: PropTypes.func,
     formProps: PropTypes.object
@@ -43,7 +42,7 @@ class ContainerFormCreate extends Component {
   }
 
   render() {
-    const { form: Form, formProps, ...rest } = this.ownProps()
+    const { form: Form, formProps } = this.props
     const { open, error } = this.state
 
     return (

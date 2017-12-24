@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Component from '../Component'
 import Section from '../api/section'
 
 import './styles/PageSectionFormCreateThread.styl'
 
-class PageSectionFormCreateThread extends Component {
+class PageSectionFormCreateThread extends React.Component {
   static propTypes = {
     section: PropTypes.instanceOf(Section).isRequired,
     onSuccess: PropTypes.func,
@@ -56,12 +55,10 @@ class PageSectionFormCreateThread extends Component {
     const { onSuccess } = this.props
 
     this.clear()
-
     onSuccess && onSuccess()
   }
 
   render() {
-    const { ...rest } = this.ownProps()
     const { threadName } = this.state
 
     return (

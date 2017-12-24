@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { withTracker } from 'meteor/react-meteor-data'
 import PropTypes from 'prop-types'
 
-import Component from '../Component'
-
 import './styles/SidebarFooter.styl'
 
-class SidebarFooter extends Component {
+class SidebarFooter extends React.Component {
   static contextTypes = {
     router: PropTypes.shape({
       history: PropTypes.shape({
@@ -17,17 +15,22 @@ class SidebarFooter extends Component {
   }
 
   render() {
-    const { user, ...rest } = this.ownProps()
+    const { user } = this.props
 
-    return user
-      ? <div id="sidebar-footer" {...rest}>
-          <span id="sidebar-footer-profile">{user.username}</span>
-          <span id="sidebar-footer-quit" onClick={this.quit}>quit</span>
-        </div>
-      : <div id="sidebar-footer" {...rest}>
-          <Link to="/signin" id="sidebar-footer-sign-in">sign in</Link>
-          <Link to="/signup" id="sidebar-footer-sign-up">sign up</Link>
-        </div>
+    return (
+      <div id="sidebar-footer">
+        {user
+          ? <Fragment>
+              <span id="sidebar-footer-profile">{user.username}</span>
+              <span id="sidebar-footer-quit" onClick={this.quit}>quit</span>
+            </Fragment>
+          : <Fragment>
+              <Link to="/signin" id="sidebar-footer-sign-in">sign in</Link>
+              <Link to="/signup" id="sidebar-footer-sign-up">sign up</Link>
+            </Fragment>
+        }
+      </div>
+    )
   }
 
   quit = () => {
