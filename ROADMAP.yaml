@@ -1,13 +1,16 @@
 areas:
   functionality:
     forms:
-      - create thread
       - create post
     pages:
       - profile
     refactoring:
       - remove ../Component.js
       - use <> or <Fragment>
+
+  bugs:
+    - one can't create threads with the same
+      name but in different section
 
   appearance:
     - nice consistent links
