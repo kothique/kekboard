@@ -1,7 +1,6 @@
 areas:
   functionality:
     forms:
-      - create post
     pages:
       - profile
 
@@ -11,6 +10,8 @@ areas:
     - nice consistent links
     - good-looking forms
     - loading animation
+    - localization
+    - z-index
 
   compatibility:
     - mobile version

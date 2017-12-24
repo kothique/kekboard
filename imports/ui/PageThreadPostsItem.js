@@ -4,7 +4,7 @@ import { withTracker } from 'meteor/react-meteor-data'
 
 import User from '../api/user'
 
-import './styles/PageThreadPosts.styl'
+import './styles/PageThreadPostsItem.styl'
 
 class PageThreadPosts extends React.Component {
   static propTypes = {
@@ -15,9 +15,7 @@ class PageThreadPosts extends React.Component {
     const { post, author } = this.props
 
     return (
-      <div
-        className="page-thread-posts-item card">s
-
+      <div className="page-thread-posts-item card">
         <div className="card-body">
           {post.body}
         </div>
@@ -36,4 +34,4 @@ export default withTracker(props => {
   const author = post ? undefined : User.findOne({ _id: author._id })
 
   return { author }
-})
+})(PageThreadPosts)

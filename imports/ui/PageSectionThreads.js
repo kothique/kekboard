@@ -34,5 +34,6 @@ export default withTracker(props => {
 
   const { section } = props
   const threads = section ? Thread.find({ sectionId: section._id }, { sort: { createdAt: 1 } }).fetch() : []
+
   return { threads }
 })(PageSectionThreads)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { withTracker } from 'meteor/react-meteor-data'
 
 import Header from './Header'
@@ -10,35 +10,30 @@ import Section from '../api/section'
 import './styles/PageSection.styl'
 
 class PageSection extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   isLoading = () => !this.props.section
 
   render() {
     const { section } = this.props
 
-    if (this.isLoading()) {
-      return (
-        <article id="section">
-          Loading...
-        </article>
-      )
-    } else {
-      return (
-        <article id="section">
-          <Header title={section.name} />
-          <section id="section-data" className="container">
-            <ContainerFormCreate
-              form={PageSectionFormCreateThread}
-              formProps={{ section }} />
+    return (
+      <article id="section">
+        {this.isLoading()
+          ? 'Loading...'
+          : <Fragment>
+              <Header title={section.name} />
+              <section id="section-data" className="container">
+                {Meteor.userId() &&
+                  <ContainerFormCreate
+                    form={PageSectionFormCreateThread}
+                    formProps={{ section }} />
+                }
 
-            <PageSectionThreads section={section} />
-          </section>
-        </article>
-      )
-    }
+                <PageSectionThreads section={section} />
+              </section>
+            </Fragment>
+        }
+      </article>
+    )
   }
 }
 

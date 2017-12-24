@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import Post from '../api/post'
 import PageThreadPostsItem from './PageThreadPostsItem'
+import Post from '../api/post'
 
 import './styles/PageThreadPosts.styl'
 

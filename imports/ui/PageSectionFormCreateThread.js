@@ -27,10 +27,9 @@ class PageSectionFormCreateThread extends React.Component {
   }
 
   onCreate = event => {
-    event.preventDefault()
-
     const { section, onSuccess, onFailure } = this.props
     const { threadName } = this.state
+    event.preventDefault()
 
     if (!threadName) {
       onFailure && onFailure('You need to specify the name')
@@ -51,8 +50,9 @@ class PageSectionFormCreateThread extends React.Component {
     })
   }
 
-  onCancel = () => {
+  onCancel = event => {
     const { onSuccess } = this.props
+    event.preventDefault()
 
     this.clear()
     onSuccess && onSuccess()
@@ -64,17 +64,17 @@ class PageSectionFormCreateThread extends React.Component {
     return (
       <form id="form-create-thread" onSubmit={this.onCreate}>
         <input
+          id="form-create-thread-name"
           className="form-control"
           type="text"
-          id="form-create-thread-name"
           name="name"
           placeholder="Thread name"
           value={threadName}
-          onChange={event => { this.setState({ threadName: event.target.value }) }}
+          onChange={event => this.setState({ threadName: event.target.value })}
           required />
 
         <button
-          id="form-create-thread-ok"
+          id="form-create-thread-create"
           className="btn btn-primary">
           Create
         </button>
@@ -82,7 +82,6 @@ class PageSectionFormCreateThread extends React.Component {
         <button
           id="form-create-thread-cancel"
           className="btn btn-secondary"
-          type="button"
           onClick={this.onCancel}>
           Cancel
          </button>

@@ -29,4 +29,18 @@ if (Meteor.isServer) {
   })
 }
 
+Meteor.methods({
+  'posts.insert'({ body, thread }) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('Not authorized')
+    }
+
+    new Post({
+      body,
+      threadId: thread._id,
+      authorId: Meteor.userId()
+    }).save()
+  }
+})
+
 export default Post
