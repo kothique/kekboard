@@ -4,7 +4,7 @@ import { withTracker } from 'meteor/react-meteor-data'
 import Header from './Header'
 import Threads from './PageSectionThreads'
 import FormCreateThread from './PageSectionFormCreateThread'
-import FormContainer from './ContainerFormCreate'
+import FormContainer from './FormContainer'
 import Section from '../api/section'
 
 import './styles/PageSection.styl'
@@ -25,7 +25,8 @@ class PageSection extends React.Component {
                 {Meteor.userId() &&
                   <FormContainer
                     form={FormCreateThread}
-                    formProps={{ section }} />
+                    formProps={{ section }}
+                    title="+" />
                 }
 
                 <Threads section={section} />

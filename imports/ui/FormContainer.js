@@ -5,10 +5,11 @@ import Link from './Link'
 
 import './styles/ContainerFormCreate.styl'
 
-class ContainerFormCreate extends React.Component {
+class FormContainer extends React.Component {
   static propTypes = {
     form: PropTypes.func,
-    formProps: PropTypes.object
+    formProps: PropTypes.object,
+    title: PropTypes.node.isRequired
   }
 
   static defaultProps = {
@@ -46,7 +47,7 @@ class ContainerFormCreate extends React.Component {
   }
 
   render() {
-    const { form: Form, formProps } = this.props
+    const { form: Form, formProps, title } = this.props
     const { open, error } = this.state
 
     return (
@@ -54,7 +55,7 @@ class ContainerFormCreate extends React.Component {
         <Link
           onClick={this.toggleContainer}
           className="container-form-create-title">
-          +
+          {title}
         </Link>
 
         {error
@@ -75,4 +76,4 @@ class ContainerFormCreate extends React.Component {
   }
 }
 
-export default ContainerFormCreate
+export default FormContainer
