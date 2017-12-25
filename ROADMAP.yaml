@@ -7,7 +7,6 @@ areas:
   bugs:
 
   appearance:
-    - nice consistent links
     - good-looking forms
     - loading animation
     - localization
