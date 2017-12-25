@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Link from './Link'
+
 import './styles/ContainerFormCreate.styl'
 
 class ContainerFormCreate extends React.Component {
@@ -47,11 +49,11 @@ class ContainerFormCreate extends React.Component {
 
     return (
       <div className={'container-form-create card card-body' + (open ? ' open' : '')}>
-        <div
+        <Link
           onClick={this.toggleContainer}
           className="container-form-create-title">
           +
-        </div>
+        </Link>
 
         {error
           ? <div className="container-form-create-error">

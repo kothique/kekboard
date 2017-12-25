@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Sidebar from './Sidebar'
 import Toggler from './Toggler'
@@ -21,13 +21,14 @@ class App extends React.Component {
   }
 
   render() {
+    const { hideSidebar } = this.state
+
     return (
       <Fragment>
-        <Sidebar
-          className={'' + (this.state.hideSidebar ? ' removed' : '')} />
+        <Sidebar removed={hideSidebar} />
 
         <div id="content"
-          className={'' + (this.state.hideSidebar ? ' sidebar-removed' : '')}>
+          className={hideSidebar ? 'sidebar-removed' : ''}>
           <Switch>
             <Route exact path="/" component={PageMain} />
             <Route path="/signup" component={PageSignUp} />
@@ -39,14 +40,16 @@ class App extends React.Component {
 
         <Toggler
           onClick={this.toggle}
-          sidebarRemoved={this.state.hideSidebar} />
+          sidebarRemoved={hideSidebar} />
       </Fragment>
     )
   }
 
   toggle = () => {
+    const { hideSidebar } = this.state
+
     this.setState({
-      hideSidebar: !this.state.hideSidebar
+      hideSidebar: !hideSidebar
     })
   }
 }
