@@ -25,8 +25,10 @@ class ContainerFormCreate extends React.Component {
   }
 
   toggleContainer = () => {
+    const { open } = this.state
+
     this.setState({
-      open: !this.state.open
+      open: !open
     })
   }
 

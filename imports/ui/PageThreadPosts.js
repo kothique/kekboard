@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTracker } from 'meteor/react-meteor-data'
 
-import PageThreadPostsItem from './PageThreadPostsItem'
+import PostItem from './PageThreadPostsItem'
 import Post from '../api/post'
 
 import './styles/PageThreadPosts.styl'
@@ -16,7 +16,7 @@ class PageThreadPosts extends React.Component {
     const { thread, posts } = this.props
 
     const items = posts.map(post =>
-      <PageThreadPostsItem
+      <PostItem
         key={post._id}
         post={post} />
     )

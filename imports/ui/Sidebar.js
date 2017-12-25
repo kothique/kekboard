@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SidebarBrand from './SidebarBrand'
-import SidebarSections from './SidebarSections'
-import SidebarFooter from './SidebarFooter'
+import Brand from './SidebarBrand'
+import Sections from './SidebarSections'
+import Footer from './SidebarFooter'
 
 import './styles/Sidebar.styl'
 
@@ -24,10 +24,10 @@ class Sidebar extends React.Component {
         id="sidebar"
         className={removed ? 'removed' : ''}>
 
-        <SidebarBrand />
+        <Brand />
         <div id="sidebar-content">
-          <SidebarSections />
-          <SidebarFooter />
+          <Sections />
+          <Footer />
         </div>
       </nav>
     )

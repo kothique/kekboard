@@ -39,13 +39,13 @@ class App extends React.Component {
         </div>
 
         <Toggler
-          onClick={this.toggle}
+          onClick={this.toggleSidebar}
           sidebarRemoved={hideSidebar} />
       </Fragment>
     )
   }
 
-  toggle = () => {
+  toggleSidebar = () => {
     const { hideSidebar } = this.state
 
     this.setState({

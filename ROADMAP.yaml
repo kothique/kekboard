@@ -6,6 +6,8 @@ areas:
 
   bugs:
 
+  refactoring:
+
   appearance:
     - good-looking forms
     - loading animation
