@@ -18,12 +18,13 @@ class PageProfile extends React.Component {
       <article id="profile">
         <Header title="Profile" />
 
-        <div id="content" className="container">
+        <div className="container">
           {this.isLoading()
             ? 'Loading...'
             : <Fragment>
-                <ChangePassword user={user} />
                 <ManageEmails user={user} />
+                <hr />
+                <ChangePassword />
               </Fragment>
           }
         </div>

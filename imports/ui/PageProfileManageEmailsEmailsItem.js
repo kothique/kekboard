@@ -13,11 +13,28 @@ class PageProfileManageEmailsEmailsItem extends React.Component {
       address: PropTypes.string.isRequired,
       verified: PropTypes.bool.isRequired
     }).isRequired,
-    onRemove: PropTypes.func
+    onSuccess: PropTypes.func,
+    onFailure: PropTypes.func
+  }
+
+  removeEmail = event => {
+    const { email: { address }, onSuccess, onFailure } = this.props
+    event.preventDefault()
+
+    Meteor.call('user.emails.remove', {
+      address
+    }, (error, result) => {
+      if (error) {
+        onFailure && onFailure(error.error)
+        return
+      }
+
+      onSuccess && onSuccess()
+    })
   }
 
   render() {
-    const { email: { address, verified }, onRemove } = this.props
+    const { email: { address, verified } } = this.props
 
     const message = verified
       ? ''
@@ -27,8 +44,8 @@ class PageProfileManageEmailsEmailsItem extends React.Component {
 
     return (
       <div className="email">
-        <div className="card card-body">
-          <div className="email-address">
+        <div className="email-address card card-body">
+          <div className="email-title">
             {address}
           </div>
 
@@ -36,8 +53,8 @@ class PageProfileManageEmailsEmailsItem extends React.Component {
         </div>
 
         <button
-          onClick={onRemove}
-          className="emails-remove btn btn-danger">
+          onClick={this.removeEmail}
+          className="email-remove btn btn-danger">
           {BTN_TEXT}
         </button>
       </div>

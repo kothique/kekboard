@@ -6,14 +6,11 @@ import User from '../api/user'
 import './styles/PageProfileChangePassword.styl'
 
 class PageProfileChangePassword extends React.Component {
-  static propTypes = {
-    user: PropTypes.instanceOf(User).isRequired
-  }
-
   constructor(props) {
     super(props)
 
     this.state = {
+      error: '',
       newPassword: '',
       oldPassword: ''
     }
@@ -21,21 +18,42 @@ class PageProfileChangePassword extends React.Component {
 
   clear = () => {
     this.setState({
+      error: '',
       newPassword: '',
       oldPassword: ''
     })
   }
 
-  onSubmit = () => {
-    // TODO
+  updateError = error => {
+    this.setState({ error })
+  }
+
+  onSubmit = event => {
+    const { oldPassword, newPassword } = this.state
+    event.preventDefault()
+
+    Meteor.call('user.password.change', {
+      oldPassword,
+      newPassword
+    }, (error, result) => {
+      if (error) {
+        this.updateError(error.error)
+        return
+      }
+
+      this.clear()
+    })
   }
 
   render() {
-    const { user } = this.props
-    const { oldPassword, newPassword } = this.state
+    const { error, oldPassword, newPassword } = this.state
 
     return (
       <div id="change-password">
+        <div id="change-password-error">
+          {error}
+        </div>
+
         <form onSubmit={this.onSubmit}>
           <input
             type="password"

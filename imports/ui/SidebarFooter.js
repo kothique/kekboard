@@ -38,7 +38,7 @@ class SidebarFooter extends React.Component {
     const { router } = this.context
 
     Meteor.logout()
-    router.history.push('/login')
+    router.history.push('/signin')
   }
 }
 

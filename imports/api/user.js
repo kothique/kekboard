@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor'
+import { Accounts } from 'meteor/accounts-base'
 import { Class } from 'meteor/jagi:astronomy'
 
 const Email = Class.create({
@@ -43,42 +44,51 @@ const User = Class.create({
   }
 })
 
-Meteor.methods({
-  'user.emails.insert'({ address }) {
-    if (!Meteor.userId()) {
-      throw new Meteor.Error('Not authorized')
+if (Meteor.isServer) {
+  Meteor.methods({
+    'user.emails.insert'({ address }) {
+      if (!Meteor.userId()) {
+        throw new Meteor.Error('Not authorized')
+      }
+
+      if (User.findOne({ emails: { $elemMatch: { address } } })) {
+        throw new Meteor.Error('This email has already been taken')
+      }
+
+      let user = User.findOne({ _id: Meteor.userId() })
+      user.emails.push({ address, verified: false })
+      user.save()
+    },
+
+    'user.emails.remove'({ address }) {
+      if (!Meteor.userId()) {
+        throw new Meteor.Error('Not authorized')
+      }
+
+      let user = User.findOne({ _id: Meteor.userId() })
+      let left = user.emails.filter(({ address_ }) => address != address_)
+
+      if (!left.some(email => email.verified)) {
+        throw new Meteor.Error('At least one verified email is required')
+      }
+
+      Accounts.removeEmail(Meteor.userId(), address)
+    },
+
+    'user.password.change'({ oldPassword, newPassword }) {
+      if (!Meteor.userId()) {
+        throw new Meteor.Error('Not authorized')
+      }
+
+      let user = User.findOne({ _id: Meteor.userId() })
+
+      if (Accounts._checkPassword(Meteor.user(), oldPassword).error) {
+        throw new Meteor.Error('Incorrect password')
+      }
+
+      Accounts.setPassword(Meteor.userId(), newPassword, { logout: false })
     }
-
-    if (User.findOne({ emails: { $elemMatch: { address } } })) {
-      throw new Meteor.Error('This email has already been taken')
-    }
-
-    let user = User.findOne({ _id: Meteor.userId() })
-    user.emails.push({ address, verified: false })
-    user.save()
-  },
-
-  'user.emails.remove'({ index }) {
-    if (!Meteor.userId()) {
-      throw new Meteor.Error('Not authorized')
-    }
-
-    let user = User.findOne({ _id: Meteor.userId() })
-
-    if (typeof user.emails[index] === 'undefined') {
-      throw new Meteor.Error('The specified email does not exist')
-    }
-
-    let left = user.emails.filter((email, index_) => index != index_)
-    let verified = left.filter(({ verified }) => verified)
-
-    if (verified.length == 0) {
-      throw new Meteor.Error('At least one verified email is required')
-    }
-
-    user.emails.splice(index, 1)
-    user.save()
-  }
-})
+  })
+}
 
 export default User

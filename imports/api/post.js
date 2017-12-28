@@ -27,20 +27,20 @@ if (Meteor.isServer) {
   Meteor.publish('posts', function() {
     return Post.find()
   })
-}
 
-Meteor.methods({
-  'posts.insert'({ body, thread }) {
-    if (!Meteor.userId()) {
-      throw new Meteor.Error('Not authorized')
+  Meteor.methods({
+    'posts.insert'({ body, thread }) {
+      if (!Meteor.userId()) {
+        throw new Meteor.Error('Not authorized')
+      }
+
+      new Post({
+        body,
+        threadId: thread._id,
+        authorId: Meteor.userId()
+      }).save()
     }
-
-    new Post({
-      body,
-      threadId: thread._id,
-      authorId: Meteor.userId()
-    }).save()
-  }
-})
+  })
+ }
 
 export default Post

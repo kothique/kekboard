@@ -17,29 +17,15 @@ class PageProfileManageEmailsEmails extends React.Component {
     onFailure: PropTypes.func
   }
 
-  removeEmailCallback = index => () => {
-    const { onSuccess, onFailure } = this.props
-
-    Meteor.call('user.emails.remove', {
-      index
-    }, (error, result) => {
-      if (error) {
-        onFailure && onFailure(error.error)
-        return
-      }
-
-      onSuccess && onSuccess()
-    })
-  }
-
   render() {
-    const { emails } = this.props
+    const { emails, onSuccess, onFailure } = this.props
 
     const items = emails.map((email, index) =>
       <EmailItem
         key={index}
         email={email}
-        onRemove={this.removeEmailCallback(index)} />
+        onSuccess={onSuccess}
+        onFailure={onFailure} />
     )
 
     return (
