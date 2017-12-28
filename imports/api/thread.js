@@ -26,7 +26,7 @@ const Thread = Class.create({
   }
 })
 
-if (Meteor.isServer) {
+if (Meteor.isServer){
   Meteor.publish('threads', function() {
     return Thread.find()
   })

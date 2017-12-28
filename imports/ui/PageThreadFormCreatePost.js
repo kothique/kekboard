@@ -42,7 +42,6 @@ class PageThreadFormCreatePost extends React.Component {
     }, (error, result) => {
       if (error) {
         onFailure && onFailure(error.error)
-        console.log(11)
         return
       }
 
@@ -70,7 +69,7 @@ class PageThreadFormCreatePost extends React.Component {
           name="body"
           placeholder="Your message here"
           value={postBody}
-          onChange={event => this.setState({ 'postBody': event.target.value })}
+          onChange={event => this.setState({ postBody: event.target.value })}
           rows="4"
           required />
 

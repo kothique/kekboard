@@ -25,12 +25,59 @@ const User = Class.create({
       }]
     },
     emails: [Email],
-    createdAt: Date,
-    profile: Object,
-    services: Object
+    createdAt: {
+      type: Date,
+      optional: true
+    },
+    profile: {
+      type: Object,
+      optional: true
+    },
+    services: {
+      type: Object,
+      optional: true
+    }
   },
   behaviors: {
     softremove: {}
+  }
+})
+
+Meteor.methods({
+  'user.emails.insert'({ address }) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('Not authorized')
+    }
+
+    if (User.findOne({ emails: { $elemMatch: { address } } })) {
+      throw new Meteor.Error('This email has already been taken')
+    }
+
+    let user = User.findOne({ _id: Meteor.userId() })
+    user.emails.push({ address, verified: false })
+    user.save()
+  },
+
+  'user.emails.remove'({ index }) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('Not authorized')
+    }
+
+    let user = User.findOne({ _id: Meteor.userId() })
+
+    if (typeof user.emails[index] === 'undefined') {
+      throw new Meteor.Error('The specified email does not exist')
+    }
+
+    let left = user.emails.filter((email, index_) => index != index_)
+    let verified = left.filter(({ verified }) => verified)
+
+    if (verified.length == 0) {
+      throw new Meteor.Error('At least one verified email is required')
+    }
+
+    user.emails.splice(index, 1)
+    user.save()
   }
 })
 

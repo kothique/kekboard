@@ -22,8 +22,8 @@ class SidebarFooter extends React.Component {
       <div id="sidebar-footer">
         {user
           ? <Fragment>
-              <Link id="sidebar-footer-profile">{user.username}</Link>
-              <Link id="sidebar-footer-quit" onClick={this.quit}>quit</Link>
+              <Link to="/profile" id="sidebar-footer-profile">{user.username}</Link>
+              <Link  onClick={this.quit} id="sidebar-footer-quit">quit</Link>
             </Fragment>
           : <Fragment>
               <Link to="/signin" id="sidebar-footer-sign-in">sign in</Link>
@@ -35,8 +35,10 @@ class SidebarFooter extends React.Component {
   }
 
   quit = () => {
+    const { router } = this.context
+
     Meteor.logout()
-    this.context.router.history.push('/')
+    router.history.push('/login')
   }
 }
 
